@@ -1,0 +1,8 @@
+.todos-container {
+  list-style: none;
+  padding: 20px 0 0;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

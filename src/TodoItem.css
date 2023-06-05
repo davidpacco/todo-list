@@ -1,0 +1,70 @@
+.todo-item {
+  display: grid;
+  width: 100%;
+  padding: 16px;
+  height: auto;
+  grid-template-columns: 20px 1fr 20px;
+  font-size: 16px;
+  box-shadow: 0px 2px 4px #ddd;
+  border-radius: 12px;
+  align-items: center;
+  gap: 8px;
+  &.todo-item--completed {
+    background-color: #ddd;
+    opacity: .8;
+    box-shadow: none;
+  }
+}
+
+.item-checkbox {
+  height: 20px;
+  width: 20px;
+  border: 2px solid #666;
+  color: #666;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  &:active {
+    transform: scale(.9);
+  }
+}
+
+.checkmark {
+  opacity: 0;
+  &.checkmark--completed {
+    opacity: 1;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.item-text {
+  opacity: .8;
+  &.item-text--completed {
+    text-decoration: line-through;
+  }
+}
+
+.item-delete {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  font-size: 14px;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: .1s;
+  user-select: none;
+  &:hover {
+    filter: none;
+  }
+  &:active {
+    transform: scale(.9);
+  }
+}

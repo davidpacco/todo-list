@@ -1,0 +1,14 @@
+#search-input {
+  border-radius: 999px;
+  border: none;
+  height: 44px;
+  padding: 8px 16px;
+  width: 100%;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  margin-top: 16px;
+  &:focus {
+    outline: 2px solid #888;
+    outline-offset: -2px;
+  }
+}
