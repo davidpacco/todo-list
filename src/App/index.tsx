@@ -1,15 +1,11 @@
 import React from 'react'
-import { TodoCounter } from './TodoCounter'
-import { TodoSearch } from './TodoSearch'
-import { TodoList } from './TodoList'
-import { TodoItem } from './TodoItem'
-import { CreateTodoButton } from './CreateTodoButton'
+import { AppUI } from './AppUI'
 
 import uniqid from 'uniqid'
 
 import './App.css'
 
-type Todo = {
+export type Todo = {
   id: string
   text: string | null
   completed: boolean
@@ -70,31 +66,14 @@ function App() {
   }
 
   return (
-    <>
-      <h1 id="title">To Do List</h1>
-      <TodoCounter
-        completed={completedTodos}
-        total={totalTodos}
-      />
-      <TodoSearch
-        setSearchValue={setSearchValue}
-        total={totalTodos}
-      />
-
-      <TodoList totalTodos={totalTodos}>
-        {matchedTodos.map((todo) =>
-          <TodoItem
-          text={todo.text}
-          completed={todo.completed}
-          key={todo.id}
-          onComplete={() => completeTodo(todo.id)}
-          onDelete={() => deleteTodo(todo.id)}
-          />
-        )}
-      </TodoList>
-
-      <CreateTodoButton/>
-    </>
+    <AppUI
+      completedTodos={completedTodos}
+      totalTodos={totalTodos}
+      setSearchValue={setSearchValue}
+      matchedTodos={matchedTodos}
+      completeTodo={completeTodo}
+      deleteTodo={deleteTodo}
+    />
   )
 }
 
