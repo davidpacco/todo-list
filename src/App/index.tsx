@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppUI } from './AppUI'
+import { useLocalStorage } from './useLocalStorage'
 
 import uniqid from 'uniqid'
 
@@ -11,35 +12,19 @@ export type Todo = {
   completed: boolean
 }
 
-function useLocalStorage(itemName: string, initialValue: Todo[]) {
-  const localStorageItem = localStorage.getItem(itemName)
-
-  let parsedItem: Todo[]
-
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue))
-    parsedItem = initialValue
-  } else {
-    parsedItem = JSON.parse(localStorageItem)
-  }
-
-  const [item, setItem] = React.useState(parsedItem)
-
-  const saveItem = (newItem:  Todo[]) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem))
-    setItem(newItem)
-  }
-
-  return [item, saveItem] as const
-}
-
 function App() {
-  const [todos, saveTodos] = useLocalStorage('ToDoList', [])
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error
+  } = useLocalStorage('ToDoList', [])
 
   const [searchValue, setSearchValue] = React.useState('')
 
   const completedTodos = todos.filter(todo => todo.completed).length
   const totalTodos = todos.length
+
   const matchedTodos = todos.filter(todo => todo.text?.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))
 
   const completeTodo = (key: string) => {
@@ -67,6 +52,8 @@ function App() {
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       completedTodos={completedTodos}
       totalTodos={totalTodos}
       setSearchValue={setSearchValue}

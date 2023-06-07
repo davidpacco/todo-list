@@ -14,5 +14,5 @@ export function TodoList({ children, totalTodos }: Props) {
       </ul>
     )
   }
-  return <></>
+  return null
 }

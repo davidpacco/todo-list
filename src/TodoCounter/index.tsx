@@ -1,16 +1,17 @@
+import { ReactNode } from 'react'
 import './TodoCounter.css'
 
 type Props = {
   completed: number
   total: number
+  children: ReactNode
 }
 
-export function TodoCounter({ completed, total }: Props) {
+export function TodoCounter({ children, completed, total }: Props) {
   if (total === 0) {
     return (
       <>
-        <p className="empty-list-msg">Add your first To Do</p>
-        <p className="arrow-down">↓</p>
+        { children }
       </>
     )
   } else if (completed === total) {
