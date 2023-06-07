@@ -16,7 +16,7 @@ export function TodoCounter({ children, completed, total }: Props) {
     )
   } else if (completed === total) {
     return (
-      <h3>You've completed all your To Dos 😎</h3>
+      <h3>You've completed all your To Dos</h3>
     )
   } else {
     return (

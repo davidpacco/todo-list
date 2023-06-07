@@ -3,10 +3,11 @@ import './TodoSearch.css'
 type Props = {
   setSearchValue: (value: string) => void
   total: number
+  error: boolean
 }
 
-export function TodoSearch({ setSearchValue, total }: Props) {
-  if (total > 0) {
+export function TodoSearch({ setSearchValue, total, error }: Props) {
+  if (total > 0 && !error) {
     return (
       <input
         id="search-input"
@@ -18,6 +19,6 @@ export function TodoSearch({ setSearchValue, total }: Props) {
       />
     )
   } else {
-    return <></>
+    return null
   }
 }

@@ -34,21 +34,26 @@ export function AppUI({
     <>
       <h1 id="title">To Do List</h1>
 
-      <TodoCounter
-        completed={completedTodos}
-        total={totalTodos}
-      >
-        {loading ? <TodoListLoading /> : null}
-        {error ? <TodoListError /> : null}
-        {(!loading && totalTodos === 0) ? <TodoListEmpty /> : null}
-      </TodoCounter>
+      {/* {error ? <TodoListError /> : null} */}
+      {error
+        ? <TodoListError />
+        : <TodoCounter
+            completed={completedTodos}
+            total={totalTodos}
+          >
+            {loading ? <TodoListLoading /> : null}
+            {/* {error ? <TodoListError /> : null} */}
+            {(!loading && totalTodos === 0) ? <TodoListEmpty /> : null}
+          </TodoCounter>
+      }
 
       <TodoSearch
         setSearchValue={setSearchValue}
         total={totalTodos}
+        error={error}
       />
 
-      <TodoList totalTodos={totalTodos}>
+      <TodoList totalTodos={totalTodos} error={error}>
         {matchedTodos.map((todo) =>
           <TodoItem
             text={todo.text}
@@ -60,7 +65,7 @@ export function AppUI({
         )}
       </TodoList>
 
-      {loading ? null : <CreateTodoButton/>}
+      {loading || error ? null : <CreateTodoButton/>}
     </>
   )
 }
