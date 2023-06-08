@@ -1,5 +1,5 @@
 import React from "react"
-import { Todo } from "."
+import { Todo } from "../App"
 
 export function useLocalStorage(itemName: string, initialValue: Todo[]) {
   const [item, setItem] = React.useState(initialValue)

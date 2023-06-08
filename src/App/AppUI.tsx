@@ -6,54 +6,36 @@ import { TodoListEmpty } from '../TodoListEmpty'
 import { TodoList } from '../TodoList'
 import { TodoItem } from '../TodoItem'
 import { CreateTodoButton } from '../CreateTodoButton'
-import { Todo } from '.'
-import React from 'react'
+import { useContext } from 'react'
+import { TodoContext } from '../TodoContext'
 
-type Props = {
-  loading: boolean
-  error: boolean
-  completedTodos: number
-  totalTodos: number
-  setSearchValue: React.Dispatch<React.SetStateAction<string>>
-  matchedTodos: Todo[]
-  completeTodo: (key: string) => void
-  deleteTodo: (key: string) => void
-}
+export function AppUI() {
+  const {
+    error,
+    loading,
+    totalTodos,
+    // completedTodos,
+    matchedTodos,
+    // setSearchValue,
+    completeTodo,
+    deleteTodo
+  } = useContext(TodoContext)
 
-export function AppUI({
-  loading,
-  error,
-  completedTodos,
-  totalTodos,
-  setSearchValue,
-  matchedTodos,
-  completeTodo,
-  deleteTodo
-}: Props) {
   return (
     <>
       <h1 id="title">To Do List</h1>
 
-      {/* {error ? <TodoListError /> : null} */}
       {error
         ? <TodoListError />
-        : <TodoCounter
-            completed={completedTodos}
-            total={totalTodos}
-          >
+        : <TodoCounter>
             {loading ? <TodoListLoading /> : null}
-            {/* {error ? <TodoListError /> : null} */}
             {(!loading && totalTodos === 0) ? <TodoListEmpty /> : null}
           </TodoCounter>
       }
 
-      <TodoSearch
-        setSearchValue={setSearchValue}
-        total={totalTodos}
-        error={error}
-      />
+      <TodoSearch />
 
-      <TodoList totalTodos={totalTodos} error={error}>
+      <TodoList>
         {matchedTodos.map((todo) =>
           <TodoItem
             text={todo.text}

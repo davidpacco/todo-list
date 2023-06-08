@@ -1,13 +1,14 @@
+import { useContext } from 'react'
 import './TodoSearch.css'
+import { TodoContext } from '../TodoContext'
 
-type Props = {
-  setSearchValue: (value: string) => void
-  total: number
-  error: boolean
-}
-
-export function TodoSearch({ setSearchValue, total, error }: Props) {
-  if (total > 0 && !error) {
+export function TodoSearch() {
+  const {
+    setSearchValue,
+    totalTodos,
+    error
+  } = useContext(TodoContext)
+  if (totalTodos > 0 && !error) {
     return (
       <input
         id="search-input"
