@@ -9,11 +9,12 @@
   border-radius: 12px;
   align-items: center;
   gap: 8px;
-  &.todo-item--completed {
-    background-color: #ddd;
-    opacity: .8;
-    box-shadow: none;
-  }
+}
+
+.todo-item.todo-item--completed {
+  background-color: #ddd;
+  opacity: .8;
+  box-shadow: none;
 }
 
 .item-checkbox {
@@ -28,26 +29,31 @@
   text-align: center;
   cursor: pointer;
   user-select: none;
-  &:active {
-    transform: scale(.9);
-  }
+}
+
+.item-checkbox:active {
+  transform: scale(.9);
 }
 
 .checkmark {
   opacity: 0;
-  &.checkmark--completed {
-    opacity: 1;
-  }
-  &:hover {
-    opacity: 1;
-  }
+}
+
+.checkmark.checkmark--completed {
+  opacity: 1;
+}
+
+.checkmark:hover {
+  opacity: 1;
 }
 
 .item-text {
   opacity: .8;
-  &.item-text--completed {
-    text-decoration: line-through;
-  }
+
+}
+
+.item-text.item-text--completed {
+  text-decoration: line-through;
 }
 
 .item-delete {
@@ -61,10 +67,12 @@
   cursor: pointer;
   transition: .1s;
   user-select: none;
-  &:hover {
-    filter: none;
-  }
-  &:active {
-    transform: scale(.9);
-  }
+}
+
+.item-delete:hover {
+  filter: none;
+}
+
+.item-delete:active {
+  transform: scale(.9);
 }

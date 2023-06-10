@@ -20,13 +20,16 @@
   border-radius: 12px;
   background-color: var(--button);
   transition: .1s;
-  &:hover {
-    background-color: var(--button-hover);
-  }
-  &:focus {
-    outline: 2px solid var(--button-hover);
-  }
-  &:active {
-    transform: scale(.95);
-  }
+}
+
+.error-button:hover {
+  background-color: var(--button-hover);
+}
+
+.error-button:focus {
+  outline: 2px solid var(--button-hover);
+}
+
+.error-button:active {
+  transform: scale(.95);
 }

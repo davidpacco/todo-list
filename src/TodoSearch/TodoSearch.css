@@ -7,8 +7,10 @@
   border: 2px solid #ccc;
   font-size: 16px;
   margin-top: 16px;
-  &:focus {
-    outline: 2px solid #888;
-    outline-offset: -2px;
-  }
+
+}
+
+#search-input:focus {
+  outline: 2px solid #888;
+  outline-offset: -2px;
 }

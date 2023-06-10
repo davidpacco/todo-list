@@ -1,3 +1,8 @@
-#root {
-  background-color: #bbb;
+:root {
+  --button: #22bb22;
+  --button-hover: #1b921b;
+  --bg-primary: #165d0d;
+  --bg-secondary: #0d0d5d;
+  --bg-primary-light: #269c16;
+  --bg-secondary-light: #16169c;
 }

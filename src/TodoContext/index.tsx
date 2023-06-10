@@ -1,6 +1,8 @@
 import React, { ReactNode, createContext } from "react";
 import { useLocalStorage } from "./useLocalStorage";
-import { TodoContextType } from "../interfaces/interfaces";
+import { TodoContextType, Todo } from "../interfaces/interfaces";
+
+import uniqid from 'uniqid'
 
 export const TodoContext = createContext<TodoContextType>({} as TodoContextType)
 
@@ -13,6 +15,7 @@ export function TodoProvider({ children }: {children: ReactNode}) {
   } = useLocalStorage('ToDoList', [])
 
   const [searchValue, setSearchValue] = React.useState('')
+  const [openModal, setOpenModal] = React.useState(false)
 
   const completedTodos = todos.filter(todo => todo.completed).length
   const totalTodos = todos.length
@@ -35,11 +38,34 @@ export function TodoProvider({ children }: {children: ReactNode}) {
     saveTodos(updatedTodos)
   }
 
+  const addTodo = (text: string) => {
+    const updatedTodos = [...todos]
+    if (text != '') {
+      const newTodo: Todo = {
+        id: uniqid(),
+        text: text,
+        completed: false
+      }
+      updatedTodos.unshift(newTodo)
+      saveTodos(updatedTodos)
+    }
+  }
+
   const deleteTodo = (id: string) => {
     const updatedTodos = [...todos]
     const index = updatedTodos.findIndex(todo => todo.id == id)
     updatedTodos.splice(index, 1)
     saveTodos(updatedTodos)
+  }
+
+  const modalToggle = (open: boolean) => {
+    if (open) {
+      document.body.style.overflowY = 'hidden'
+      setOpenModal(true)
+    } else {
+      document.body.style.overflowY = 'auto'
+      setOpenModal(false)
+    }
   }
 
   return (
@@ -51,7 +77,10 @@ export function TodoProvider({ children }: {children: ReactNode}) {
         setSearchValue,
         matchedTodos,
         completeTodo,
-        deleteTodo
+        addTodo,
+        deleteTodo,
+        openModal,
+        modalToggle
       }}
     >
       { children }

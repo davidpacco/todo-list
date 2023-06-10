@@ -12,5 +12,8 @@ export type TodoContextType = {
   setSearchValue: (value: string) => void
   matchedTodos: Todo[]
   completeTodo: (id: string) => void
+  addTodo: (text: string) => void
   deleteTodo: (id: string) => void
+  openModal: boolean
+  modalToggle: (open: boolean) => void
 }

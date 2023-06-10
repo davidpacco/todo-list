@@ -1,5 +1,5 @@
 import React from "react"
-import { Todo } from "../App"
+import { Todo } from "../interfaces/interfaces"
 
 export function useLocalStorage(itemName: string, initialValue: Todo[]) {
   const [item, setItem] = React.useState(initialValue)
@@ -26,7 +26,6 @@ export function useLocalStorage(itemName: string, initialValue: Todo[]) {
         setLoading(false)
         setError(true)
       }
-      console.log('useEffect')
     }, Math.random() * 3000)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

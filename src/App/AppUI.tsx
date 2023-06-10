@@ -8,17 +8,18 @@ import { TodoItem } from '../TodoItem'
 import { CreateTodoButton } from '../CreateTodoButton'
 import { useContext } from 'react'
 import { TodoContext } from '../TodoContext'
+import { Modal } from '../Modal'
+import { TodoAddWindow } from '../TodoAddWindow'
 
 export function AppUI() {
   const {
     error,
     loading,
     totalTodos,
-    // completedTodos,
     matchedTodos,
-    // setSearchValue,
     completeTodo,
-    deleteTodo
+    deleteTodo,
+    openModal
   } = useContext(TodoContext)
 
   return (
@@ -48,6 +49,12 @@ export function AppUI() {
       </TodoList>
 
       {loading || error ? null : <CreateTodoButton/>}
+
+      {openModal && (
+        <Modal>
+          <TodoAddWindow />
+        </Modal>
+      )}
     </>
   )
 }
