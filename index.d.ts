@@ -1,1 +1,1 @@
-declare module 'uniqid';
+declare module 'uuid';

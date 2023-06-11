@@ -2,7 +2,7 @@ import React, { ReactNode, createContext } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { TodoContextType, Todo } from "../interfaces/interfaces";
 
-import uniqid from 'uniqid'
+import { v4 as uuidv4 } from 'uuid'
 
 export const TodoContext = createContext<TodoContextType>({} as TodoContextType)
 
@@ -42,7 +42,8 @@ export function TodoProvider({ children }: {children: ReactNode}) {
     const updatedTodos = [...todos]
     if (text != '') {
       const newTodo: Todo = {
-        id: uniqid(),
+        id: uuidv4(),
+        // id: uniqid(),
         text: text,
         completed: false
       }
