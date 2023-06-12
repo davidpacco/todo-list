@@ -29,29 +29,30 @@ export function TodoAddWindow() {
         autoFocus={true}
         autoComplete='off'
       />
+      <div className="buttons-container">
+        <button
+          type='submit'
+          className='new-todo--add new-todo--button'
+          onClick={addNewTodo}
+        >
+          <img
+            className='accept-icon'
+            src={AcceptIcon}
+            alt="Accept icon"
+          />
+        </button>
 
-      <button
-        type='submit'
-        className='new-todo--add new-todo--button'
-        onClick={addNewTodo}
-      >
-        <img
-          className='accept-icon'
-          src={AcceptIcon}
-          alt="Accept icon"
-        />
-      </button>
-
-      <button
-        type='submit'
-        className='new-todo--cancel new-todo--button'
-      >
-        <img
-          className='cancel-icon'
-          src={CancelIcon}
-          alt="Cancel icon"
-        />
-      </button>
+        <button
+          type='submit'
+          className='new-todo--cancel new-todo--button'
+        >
+          <img
+            className='cancel-icon'
+            src={CancelIcon}
+            alt="Cancel icon"
+          />
+        </button>
+      </div>
     </form>
   )
 }
