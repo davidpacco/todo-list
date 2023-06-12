@@ -37,6 +37,13 @@
 
 .checkmark {
   opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark img {
+  width: 90%;
 }
 
 .checkmark.checkmark--completed {

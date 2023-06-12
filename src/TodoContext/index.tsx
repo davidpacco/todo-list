@@ -43,7 +43,6 @@ export function TodoProvider({ children }: {children: ReactNode}) {
     if (text != '') {
       const newTodo: Todo = {
         id: uuidv4(),
-        // id: uniqid(),
         text: text,
         completed: false
       }

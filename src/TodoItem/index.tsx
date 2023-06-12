@@ -1,3 +1,4 @@
+import CheckIcon from '../assets/check-icon.svg'
 import './TodoItem.css'
 
 type Props = {
@@ -11,7 +12,9 @@ export function TodoItem({ text, completed, onComplete, onDelete }: Props) {
   return (
     <li className={`todo-item ${completed && "todo-item--completed"}`}>
       <div className={`item-checkbox`} onClick={onComplete}>
-        <span className={`checkmark ${completed && "checkmark--completed"}`}>✓</span>
+        <span className={`checkmark ${completed && "checkmark--completed"}`}>
+          <img src={CheckIcon} alt="" />
+        </span>
       </div>
       <p className={`item-text ${completed && "item-text--completed"}`}>{ text }</p>
       <span className='item-delete' onClick={onDelete}>❌</span>

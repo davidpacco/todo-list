@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { TodoContext } from '../TodoContext'
-import CheckIcon from '../assets/check-icon.svg'
+import AcceptIcon from '../assets/accept-icon.svg'
 import CancelIcon from '../assets/cancel-icon.svg'
 import './TodoAddWindow.css'
 
@@ -36,8 +36,8 @@ export function TodoAddWindow() {
         onClick={addNewTodo}
       >
         <img
-          className='check-icon'
-          src={CheckIcon}
+          className='accept-icon'
+          src={AcceptIcon}
           alt="Accept icon"
         />
       </button>

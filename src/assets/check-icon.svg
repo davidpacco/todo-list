@@ -1,10 +1,16 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
   <defs>
     <style>
       .cls-1 {
-        fill: #2b2;
+        fill: none;
+        stroke: #666;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 4px;
       }
     </style>
   </defs>
-  <path class="cls-1" d="M33.33,87.5a8.3,8.3,0,0,1-5.89-2.44l-25-25A8.34,8.34,0,0,1,14.23,48.27l19.1,19.11L85.77,14.94A8.34,8.34,0,0,1,97.56,26.73L39.23,85.06A8.3,8.3,0,0,1,33.33,87.5Z"/>
+  <g id="Interface_Check_Big" data-name="Interface / Check_Big">
+    <path id="Vector" class="cls-1" d="M9.44,27.71l9.9,9.9L40.56,16.39"/>
+  </g>
 </svg>
