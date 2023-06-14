@@ -1,5 +1,5 @@
 # TO-DO LIST
-#Table of Contents
+## Table of Contents
 1. [Description](#description)
 1. [Challenge](#challenge)
 1. [Screenshot](#screenshot)
