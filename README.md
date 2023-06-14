@@ -4,7 +4,7 @@
 1. [Challenge](#challenge)
 1. [Screenshot](#screenshot)
 1. [Links](#links)
-1. [Built with](#built.with)
+1. [Built with](#built-with)
 1. [Author](#author)
 ## Description
 App to add, delete and complete to dos, all stored locally.
