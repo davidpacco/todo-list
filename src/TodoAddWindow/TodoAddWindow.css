@@ -37,6 +37,7 @@
   transition: .2s;
   display: flex;
   transform-origin: center;
+  -webkit-transform-origin: center;
 }
 
 .new-todo--button:hover {
